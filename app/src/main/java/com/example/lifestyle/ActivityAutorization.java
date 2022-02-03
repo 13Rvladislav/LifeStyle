@@ -1,42 +1,32 @@
 package com.example.lifestyle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.Button;
 
-import java.util.ArrayList;
-
-public class StartScreen extends AppCompatActivity {
-Button mainButton;
-
+public class ActivityAutorization extends AppCompatActivity {
+    Button regButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.srartscreen);
-        mainButton = (Button) findViewById(R.id.startScreenButton);
-
+        setContentView(R.layout.activity_autorization);
+        regButton = (Button) findViewById(R.id.buttonReg);
         View.OnClickListener onClickListener = new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
                 switch (view.getId()) {
-                    case R.id.startScreenButton:
+                    case R.id.buttonReg:
                     default:
-                        Intent intent = new Intent(StartScreen.this, ActivityAutorization.class);
+                        Intent intent = new Intent(ActivityAutorization.this, ActivityRegistration.class);
                         startActivity(intent);
                         break;
                 }
             }
         };
-        mainButton.setOnClickListener(onClickListener);
+        regButton.setOnClickListener(onClickListener);
     }
 }
-
