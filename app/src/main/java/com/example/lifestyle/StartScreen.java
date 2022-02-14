@@ -21,6 +21,7 @@ Button mainButton;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.srartscreen);
+        getSupportActionBar().hide();
         mainButton = (Button) findViewById(R.id.startScreenButton);
 
         View.OnClickListener onClickListener = new View.OnClickListener() {
