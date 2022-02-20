@@ -4,95 +4,129 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".ActivityRegistration">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/startScreenButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.059"
+        app:srcCompat="@drawable/circles" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="148dp"
+        android:fontFamily="@font/oswaldbold700"
         android:text="Регистрация"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.845" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextTextName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:backgroundTint="#1794E0"
+        android:background="@drawable/custom_input"
         android:ems="10"
+        android:fontFamily="@font/lato"
+        android:gravity="center"
         android:hint="Имя пользователя"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.958" />
 
     <Button
         android:id="@+id/buttonReg"
-        android:layout_width="250dp"
+        android:layout_width="265dp"
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
-        android:layout_marginBottom="284dp"
-        android:backgroundTint="#FF8800"
+        android:layout_marginBottom="88dp"
+        android:background="@drawable/button"
+        android:backgroundTint="#2C446C"
+        android:fontFamily="@font/latobold700"
         android:text="Зарегистрироваться"
-        android:textColor="#000326"
-        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.408"
-        app:layout_constraintStart_toStartOf="parent"
 
+        app:layout_constraintHorizontal_bias="0.408"
+
+        app:layout_constraintStart_toStartOf="parent"
         tools:targetApi="lollipop" />
 
     <EditText
         android:id="@+id/editTextTextPassword2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:backgroundTint="#1794E0"
+        android:background="@drawable/custom_input"
         android:ems="10"
+        android:fontFamily="@font/lato"
+        android:gravity="center"
         android:hint="Повторить пароль"
         android:inputType="textPassword"
         android:minHeight="48dp"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/buttonReg"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.834" />
 
     <EditText
         android:id="@+id/editTextTextPassword1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:backgroundTint="#1794E0"
+        android:background="@drawable/custom_input"
         android:ems="10"
+        android:fontFamily="@font/lato"
+        android:gravity="center"
         android:hint="Пароль"
         android:inputType="textPassword"
         android:minHeight="48dp"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.965" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:backgroundTint="#1794E0"
+
+        android:background="@drawable/custom_input"
         android:ems="10"
+        android:fontFamily="@font/lato"
+        android:gravity="center"
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.937" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

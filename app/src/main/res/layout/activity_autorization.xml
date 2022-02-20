@@ -2,8 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/textcolor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
+    app:circularflow_radiusInDP="16dx"
     tools:context=".ActivityAutorization">
 
 
@@ -11,8 +14,12 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Авторизация"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
+        android:layout_marginTop="148dp"
+        android:fontFamily="@font/oswaldbold700"
+        android:text="LifeStyle"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,27 +28,36 @@
         android:id="@+id/editTextTextEmailAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#1794E0"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/custom_input"
         android:ems="10"
+        android:gravity="center"
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="436dp"
-        android:backgroundTint="#1794E0"
+        android:layout_marginBottom="308dp"
+
+        android:background="@drawable/custom_input"
         android:ems="10"
+        android:gravity="center"
         android:hint="Пароль"
         android:inputType="textPassword"
-        android:minHeight="48dp"
+        android:minHeight="50dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -49,59 +65,78 @@
         android:layout_width="200dp"
         android:layout_height="48dp"
         android:background="@android:color/transparent"
+        android:fontFamily="@font/lato"
         android:text="забыл пароль"
-        android:textColor="#1794e0"
+        android:textColor="#FFFFFF"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.05" />
 
     <Button
         android:id="@+id/buttonR"
-        android:layout_width="250dp"
+        android:layout_width="265dp"
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
-        android:layout_marginBottom="324dp"
-        android:backgroundTint="#FF8800"
+        android:layout_marginBottom="188dp"
+        android:background="@drawable/button"
+        android:backgroundTint="#2C446C"
+        android:fontFamily="@font/latobold700"
         android:text="Вход"
-        android:textColor="#000326"
-        android:textSize="24sp"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.408"
-        app:layout_constraintStart_toStartOf="parent"
 
+        app:layout_constraintStart_toStartOf="parent"
         tools:targetApi="lollipop" />
 
     <TextView
         android:id="@+id/nohaveacc"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/lato"
         android:text="ещё нет аккаунта ?"
-        android:textColor="#1794e0"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
+
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/misspassword"
-        app:layout_constraintVertical_bias="0.214"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonR"
+        app:layout_constraintVertical_bias="0.232" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.059"
+        app:srcCompat="@drawable/circles" />
 
     <Button
         android:id="@+id/buttonReg"
-        android:layout_width="250dp"
+        android:layout_width="265dp"
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
-        android:layout_marginBottom="236dp"
-        android:backgroundTint="#FF8800"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/button"
+        android:backgroundTint="#2C446C"
         android:text="Регистрация"
-        android:textColor="#000326"
-        android:textSize="24sp"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintHorizontal_bias="0.408"
         app:layout_constraintStart_toStartOf="parent"
-
         tools:targetApi="lollipop" />
 </androidx.constraintlayout.widget.ConstraintLayout>
