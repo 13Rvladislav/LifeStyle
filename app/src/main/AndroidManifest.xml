@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LifeStyle">
         <activity
+            android:name=".Tutorial"
+            android:exported="false" />
+        <activity
+            android:name=".MissPassword"
+            android:exported="false" />
+        <activity
             android:name=".ActivityRegistration"
             android:exported="false" />
         <activity

@@ -28,13 +28,14 @@
         android:fontFamily="@font/oswaldbold700"
         android:text="Регистрация"
         android:textColor="#FFFFFF"
+
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextName"
+        android:id="@+id/Username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_input"
@@ -45,7 +46,8 @@
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:textColorHint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword1"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/password1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +75,7 @@
         tools:targetApi="lollipop" />
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
+        android:id="@+id/password2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_input"
@@ -84,6 +86,7 @@
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/buttonReg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -92,7 +95,7 @@
         app:layout_constraintVertical_bias="0.834" />
 
     <EditText
-        android:id="@+id/editTextTextPassword1"
+        android:id="@+id/password1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_input"
@@ -103,7 +106,8 @@
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:textColorHint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword2"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/password2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -111,7 +115,7 @@
         app:layout_constraintVertical_bias="0.965" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
@@ -123,7 +127,8 @@
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:textColorHint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextName"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/Username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
