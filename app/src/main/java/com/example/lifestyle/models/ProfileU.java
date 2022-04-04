@@ -2,62 +2,73 @@ package com.example.lifestyle.models;
 
 public class ProfileU {
     String Name;
-    int Mmr;
-    int algorithm, security, pc, programming, informatic;
+   String color, style, brand, size, gender,season,price,print;
 
     public ProfileU() {
         this.Name = Name;
-        this.Mmr = 0;
-        this.algorithm = 0;
-        this.security = 0;
-        this.pc = 0;
-        this.programming = 0;
-        this.informatic = 0;
+
+        this.color = "0";
+        this.style = "0";
+
+        this.brand = "0";
+        this.size = "0";
+
+        this.price = "0";
+        this.print = "0";
     }
 
-    public ProfileU(String name, int mmr, int algorithm, int security, int pc, int programming, int informatic) {
+    public ProfileU(String name, String mmr, String color, String style, String brand, String size, String gender, String season,String price,String print) {
         this.Name = name;
-        this.Mmr = mmr;
-        this.algorithm = algorithm;
-        this.security = security;
-        this.pc = pc;
-        this.programming = programming;
-        this.informatic = informatic;
+        //1
+        this.color = color;
+        this.style = style;
+        //2
+        this.brand = brand;
+        this.size = size;
+        //3
+        this.gender = gender;
+        this.season = season;
+        //4
+        this.price = price;
+        this.print = print;
     }
 
-    //геттер и сеттер
+    //геттер и сеттер ИМЯ
     public String getName() {return this.Name;}
     public void setName(String name) {
         this.Name = name;
     }
 
-    public int getMmr() {
-        return this.Mmr;
-    }
-    public void setMmr(int mmr) {
-        this.Mmr = mmr;
-    }
+    //геттер и сеттер  ЦВЕТ
+    public String getColor() {return this.color;}
+    public void setColor(String color) {this.color = color;}
 
-    public int getAlgorithm() {return this.algorithm;}
-    public void setAlgorithm(int algorithm) {this.algorithm = algorithm;}
+    //геттер и сеттер СТИЛЬ
+    public String getStyle() {return this.style;}
+    public void setStyle(String style) {this.style = style;}
 
-    public int getSecurity() {return this.security;}
-    public void setSecurity(int security) {this.security = security;}
+    //геттер и сеттер БРЕНД
+    public String getBrand() {return this.brand;}
+    public void setBrand(String brand) {this.brand = brand;}
 
-    public int getPc() {return this.pc;}
-    public void setPc(int pc) {this.pc = pc;}
+    //геттер и сеттер РАЗМЕР
+    public String getSize() {return this.size;}
+    public void setSize(String size) {this.size = size;}
 
-    public int getProgramming() {return this.programming;}
-    public void setProgramming(int programming) {this.programming = programming;}
+    //геттер и сеттер ПОЛ
+    public String getGender() {return this.gender;}
+    public void setGender(String gender) {this.gender = gender;}
 
-    public int getInformatic() {return this.informatic;}
-    public void setInformatic(int informatic) {this.informatic = informatic;}
+    //геттер и сеттер СЕЗОН
+    public String getSeason() {return this.season;}
+    public void setSeason(String season) {this.season = season;}
 
-    @Override
-    public String toString() {
-        return "ProfileU{" +
-                "Name='" + Name + '\'' +
-                ", Mmr=" + Mmr +
-                '}';
-    }
+    //геттер и сеттер ЦЕНА
+    public String getPrice() {return this.price;}
+    public void setPrice(String price) {this.price = price;}
+
+    //геттер и сеттер ПРИНТ
+    public String getPrint() {return this.print;}
+    public void setPrint(String print) {this.print = print;}
+
 }
