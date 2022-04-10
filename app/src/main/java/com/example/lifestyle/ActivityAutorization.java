@@ -86,7 +86,7 @@ public class ActivityAutorization extends AppCompatActivity {
                                         if (auth.getCurrentUser() != null) {
                                             boolean isEmailVerified = auth.getCurrentUser().isEmailVerified();
                                             if (isEmailVerified) {
-                                                Intent intent = new Intent(ActivityAutorization.this, SelectionOfParameters.class);
+                                                Intent intent = new Intent(ActivityAutorization.this, Tutorial.class);
                                                 startActivity(intent);
                                             } else {
                                                 Toast toast = Toast.makeText(ActivityAutorization.this, "Верефицируйте ваш аккаунт!", Toast.LENGTH_SHORT);
