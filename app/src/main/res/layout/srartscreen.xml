@@ -93,7 +93,7 @@
         android:layout_width="146dp"
         android:layout_height="55dp"
         android:background="@drawable/button"
-
+        android:backgroundTint="#2C446C"
         android:text="Вход"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
