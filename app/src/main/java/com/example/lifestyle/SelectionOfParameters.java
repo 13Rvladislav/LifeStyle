@@ -429,12 +429,12 @@ public class SelectionOfParameters extends AppCompatActivity {
                                     checker++;
                                 }
                                 if (checker != 0) {
-                                    if (!brand.equals(" неважно ")) {
+                                    if (!brand.equals(" Неважно ")) {
                                         brand = brand.substring(1);
                                         brand = brand.substring(1);
                                     }
                                     brand = brand.substring(1);
-                                    brand = brand.substring(0, brand.length() - 1);
+
                                 }
                                 dialog.dismiss();//скрыть окно
                             }
@@ -722,8 +722,7 @@ public class SelectionOfParameters extends AppCompatActivity {
                                 }
                                 Ot = priceOT.getText().toString();
                                 Do = priceDO.getText().toString();
-                                IntOt= Integer.parseInt (Ot);
-                                IntDo= Integer.parseInt (Ot);
+
                                 String regex = "\\d+";
                                 boolean check = true;
                                 if (!Ot.matches(regex)) {
@@ -737,6 +736,8 @@ public class SelectionOfParameters extends AppCompatActivity {
                                     toast.show();
                                     return;
                                 }
+                                IntOt= Integer.parseInt (Ot);
+                                IntDo= Integer.parseInt (Ot);
                                 if (IntOt > IntDo) {
                                     Toast toast = Toast.makeText(SelectionOfParameters.this, "неверный формат цены первое число не может быть больше второго", Toast.LENGTH_SHORT);
                                     toast.show();
