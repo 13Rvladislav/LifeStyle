@@ -38,6 +38,17 @@
             android:textColor="@color/black"
             android:textSize="25sp" />
 
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:shadowColor="@color/black"
+            android:text="Сумму вводить в формате целого числа без сиволов"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
         <EditText
             android:id="@+id/priceot"
             android:layout_width="wrap_content"

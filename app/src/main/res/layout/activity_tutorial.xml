@@ -13,7 +13,10 @@
         android:layout_height="match_parent"
         android:inAnimation="@android:anim/slide_in_left"
         android:outAnimation="@android:anim/slide_out_right">
-//1-ый слайд
+        //1-ый слайд
+
+        //2-ой слайд
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -92,25 +95,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:fontFamily="@font/oswaldlight300"
                     android:text="@string/Text"
                     android:textColor="@color/white"
-                    android:textSize="24sp"
-                    android:fontFamily="@font/oswaldlight300"/>
+                    android:textSize="24sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:fontFamily="@font/oswaldlight300"
                     android:text="@string/Text1"
                     android:textColor="#FFFFFF"
-                    android:textSize="24sp"
-                    android:fontFamily="@font/oswaldlight300"/>
+                    android:textSize="24sp" />
 
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-//2-ой слайд
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -583,21 +584,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/balls1" />
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="265dp"
-                android:layout_height="50dp"
-                android:layout_marginBottom="60dp"
-                android:background="@drawable/button"
-                android:text="Начать"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:fontFamily="@font/latobold700"
-                android:backgroundTint="#2C446C"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -615,6 +602,27 @@
         app:srcCompat="@drawable/l_arrow"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="265dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="15dp"
+        android:layout_toStartOf="@+id/imageButton4"
+        android:layout_toEndOf="@+id/imageButton3"
+        android:background="@drawable/button"
+        android:backgroundTint="#2C446C"
+        android:fontFamily="@font/latobold700"
+        android:text="Начать"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <ImageButton
         android:id="@+id/imageButton4"
         android:layout_width="wrap_content"
@@ -626,5 +634,6 @@
         android:background="@null"
         app:srcCompat="@drawable/r_arrow"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
 
 </RelativeLayout>

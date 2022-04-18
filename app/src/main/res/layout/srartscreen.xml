@@ -44,11 +44,11 @@
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/latobold700"
+            android:fontFamily="@font/oswaldbold700"
             android:gravity="center"
             android:text="LifeStyle -"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/textView7"
@@ -96,6 +96,8 @@
         android:backgroundTint="#2C446C"
         android:text="Вход"
         android:textColor="@color/white"
+        android:textSize="20dp"
+        android:fontFamily="@font/latobold700"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.552"

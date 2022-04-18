@@ -100,7 +100,7 @@
                             android:layout_height="match_parent" >
 
                             <RadioButton
-                                android:id="@+id/radioButton5"
+                                android:id="@+id/radioButton1_1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:button="@null"
@@ -108,7 +108,7 @@
                                 android:text="Да" />
 
                             <RadioButton
-                                android:id="@+id/radioButton6"
+                                android:id="@+id/radioButton1_2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:button="@null"
@@ -116,7 +116,7 @@
                                 android:text="Нет" />
 
                             <RadioButton
-                                android:id="@+id/radioButton7"
+                                android:id="@+id/radioButton1_3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:button="@null"
@@ -149,7 +149,7 @@
                             android:layout_height="match_parent" >
 
                             <RadioButton
-                                android:id="@+id/radioButton25"
+                                android:id="@+id/radioButton2_1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:button="@null"
@@ -157,7 +157,7 @@
                                 android:text="Юг" />
 
                             <RadioButton
-                                android:id="@+id/radioButton24"
+                                android:id="@+id/radioButton2_2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:button="@null"
@@ -165,7 +165,7 @@
                                 android:text="Запад" />
 
                             <RadioButton
-                                android:id="@+id/radioButton23"
+                                android:id="@+id/radioButton2_3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:button="@null"
@@ -173,7 +173,7 @@
                                 android:text="Север" />
 
                             <RadioButton
-                                android:id="@+id/radioButton3"
+                                android:id="@+id/radioButton2_4"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:button="@null"
@@ -181,7 +181,7 @@
                                 android:text="Восток" />
 
                             <RadioButton
-                                android:id="@+id/radioButton4"
+                                android:id="@+id/radioButton2_5"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:button="@null"
@@ -214,7 +214,7 @@
                             android:layout_height="match_parent" >
 
                             <RadioButton
-                                android:id="@+id/radioButton28"
+                                android:id="@+id/radioButton3_1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:button="@null"
@@ -222,7 +222,7 @@
                                 android:text="Умеренный" />
 
                             <RadioButton
-                                android:id="@+id/radioButton29"
+                                android:id="@+id/radioButton3_2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:button="@null"
@@ -230,7 +230,7 @@
                                 android:text="Теплый" />
 
                             <RadioButton
-                                android:id="@+id/radioButton26"
+                                android:id="@+id/radioButton3_3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:button="@null"
@@ -238,7 +238,7 @@
                                 android:text="Холодный" />
 
                             <RadioButton
-                                android:id="@+id/radioButton27"
+                                android:id="@+id/radioButton3_4"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:button="@null"
@@ -269,7 +269,7 @@
                             android:layout_height="match_parent" >
 
                             <RadioButton
-                                android:id="@+id/radioButton30"
+                                android:id="@+id/radioButton4_1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:button="@null"
@@ -277,7 +277,7 @@
                                 android:text="Да" />
 
                             <RadioButton
-                                android:id="@+id/radioButton8"
+                                android:id="@+id/radioButton4_2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:button="@null"
@@ -285,7 +285,7 @@
                                 android:text="Нет" />
 
                             <RadioButton
-                                android:id="@+id/radioButton9"
+                                android:id="@+id/radioButton4_3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:button="@null"
@@ -316,7 +316,7 @@
                             android:layout_height="match_parent" >
 
                             <RadioButton
-                                android:id="@+id/radioButton31"
+                                android:id="@+id/radioButton5_1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:button="@null"
@@ -324,7 +324,7 @@
                                 android:text="Да" />
 
                             <RadioButton
-                                android:id="@+id/radioButton10"
+                                android:id="@+id/radioButton5_2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:button="@null"
@@ -332,7 +332,7 @@
                                 android:text="Нет" />
 
                             <RadioButton
-                                android:id="@+id/radioButton11"
+                                android:id="@+id/radioButton5_3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:button="@null"

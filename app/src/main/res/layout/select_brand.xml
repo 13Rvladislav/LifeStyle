@@ -272,7 +272,7 @@
                 android:layout_weight="1"
                 android:button="@null"
                 android:drawableLeft="@drawable/checkbox"
-                android:text=" неважно"
+                android:text=" Неважно"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/BtnBackSelect"

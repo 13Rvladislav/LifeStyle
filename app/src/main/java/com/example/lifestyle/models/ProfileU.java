@@ -2,7 +2,7 @@ package com.example.lifestyle.models;
 
 public class ProfileU {
     String Name;
-   String color, style, brand, size, gender,season,price,print;
+   String color, style, brand, size, gender,season,price;
 
     public ProfileU() {
         this.Name = Name;
@@ -14,10 +14,9 @@ public class ProfileU {
         this.size = "0";
 
         this.price = "0";
-        this.print = "0";
     }
 
-    public ProfileU(String name, String mmr, String color, String style, String brand, String size, String gender, String season,String price,String print) {
+    public ProfileU(String name, String mmr, String color, String style, String brand, String size, String gender, String season,String price) {
         this.Name = name;
         //1
         this.color = color;
@@ -30,7 +29,7 @@ public class ProfileU {
         this.season = season;
         //4
         this.price = price;
-        this.print = print;
+
     }
 
     //геттер и сеттер ИМЯ
@@ -67,8 +66,5 @@ public class ProfileU {
     public String getPrice() {return this.price;}
     public void setPrice(String price) {this.price = price;}
 
-    //геттер и сеттер ПРИНТ
-    public String getPrint() {return this.print;}
-    public void setPrint(String print) {this.print = print;}
 
 }
