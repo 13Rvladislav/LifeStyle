@@ -152,7 +152,7 @@
                     app:layout_constraintHorizontal_bias="0.948"
                     app:layout_constraintStart_toEndOf="@+id/imageButton"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/profile"/>
+                    app:srcCompat="@drawable/iconprofile"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout

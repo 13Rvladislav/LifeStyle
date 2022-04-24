@@ -1,11 +1,13 @@
-package com.example.lifestyle;
+package com.example.lifestyle.ui.Params;
 
 import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -15,8 +17,11 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
+import com.example.lifestyle.R;
+
+import com.example.lifestyle.databinding.FragmentParamsBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -25,7 +30,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class SelectionOfParameters extends AppCompatActivity {
+public class ParamsFragment extends Fragment {
+
     //основные параметры
     String color = "";
     String style = "";
@@ -67,20 +73,23 @@ public class SelectionOfParameters extends AppCompatActivity {
     int str;
     //  ProfileU me = new ProfileU();
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_selection_of_parameters);
-        getSupportActionBar().hide();
-        BtnColors = findViewById(R.id.Sbutton1);
-        BtnStyle = findViewById(R.id.Sbutton2);
-        BtnBrand = findViewById(R.id.Sbutton3);
-        BtnSize = findViewById(R.id.Sbutton4);
-        BtnGender = findViewById(R.id.Sbutton5);
-        BtnSeason = findViewById(R.id.Sbutton6);
-        BtnPrice = findViewById(R.id.Sbutton7);
-        BtnPrint = findViewById(R.id.Sbutton8);
-        collect_the_onion = findViewById(R.id.collect_the_onion);
+
+    //private ParamsViewModel paramsViewModel;
+    private FragmentParamsBinding binding;
+
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_params,
+                container, false);
+        BtnColors =(Button) view.findViewById(R.id.Sbutton1);
+        BtnStyle =(Button) view.findViewById(R.id.Sbutton2);
+        BtnBrand =(Button) view.findViewById(R.id.Sbutton3);
+        BtnSize = (Button)view.findViewById(R.id.Sbutton4);
+        BtnGender =(Button) view.findViewById(R.id.Sbutton5);
+        BtnSeason =(Button) view.findViewById(R.id.Sbutton6);
+        BtnPrice =(Button) view.findViewById(R.id.Sbutton7);
+        BtnPrint =(Button) view.findViewById(R.id.Sbutton8);
+        collect_the_onion =(Button) view.findViewById(R.id.collect_the_onion);
 ///////////////////////////////переменные записиси в бд////////////////////////////////////////////////////////
         auth = FirebaseAuth.getInstance();
         FirebaseUser user1 = auth.getCurrentUser();
@@ -96,7 +105,7 @@ public class SelectionOfParameters extends AppCompatActivity {
                     case R.id.Sbutton1:
                         //кнопка  цвет
                     {
-                        dialog = new Dialog(SelectionOfParameters.this);
+                        dialog = new Dialog(ParamsFragment.this.getActivity());
                         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);//скрыть заголовок
                         dialog.setContentView(R.layout.select_colors);//путь к макету диалогового окна
                         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));//прозрачный фон
@@ -175,7 +184,7 @@ public class SelectionOfParameters extends AppCompatActivity {
                         //кнопка стиль
                     {
                         Button BtnPrint1;
-                        dialog = new Dialog(SelectionOfParameters.this);
+                        dialog = new Dialog(ParamsFragment.this.getActivity());
                         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);//скрыть заголовок
                         dialog.setContentView(R.layout.select_style);//путь к макету диалогового окна
                         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));//прозрачный фон
@@ -252,7 +261,7 @@ public class SelectionOfParameters extends AppCompatActivity {
                     break;
                     case R.id.Sbutton3: {
                         //кнопка бренд
-                        dialog = new Dialog(SelectionOfParameters.this);
+                        dialog = new Dialog(ParamsFragment.this.getActivity());
                         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);//скрыть заголовок
                         dialog.setContentView(R.layout.select_brand);//путь к макету диалогового окна
                         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));//прозрачный фон
@@ -443,7 +452,7 @@ public class SelectionOfParameters extends AppCompatActivity {
                     break;
                     case R.id.Sbutton4: {
                         //кнопка размер
-                        dialog = new Dialog(SelectionOfParameters.this);
+                        dialog = new Dialog(ParamsFragment.this.getActivity());
                         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);//скрыть заголовок
                         dialog.setContentView(R.layout.select_size);//путь к макету диалогового окна
                         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));//прозрачный фон
@@ -591,7 +600,7 @@ public class SelectionOfParameters extends AppCompatActivity {
                                     CheckInputSize++;
                                 }
                                 if (CheckInputSize == 0) {
-                                    Toast toast = Toast.makeText(SelectionOfParameters.this, "Выберите размер!", Toast.LENGTH_SHORT);
+                                    Toast toast = Toast.makeText(ParamsFragment.this.getActivity(), "Выберите размер!", Toast.LENGTH_SHORT);
                                     toast.show();
                                     return;
                                 }
@@ -606,7 +615,7 @@ public class SelectionOfParameters extends AppCompatActivity {
                     case R.id.Sbutton5:
                         //кнопка пол
                     {
-                        dialog = new Dialog(SelectionOfParameters.this);
+                        dialog = new Dialog(ParamsFragment.this.getActivity());
                         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);//скрыть заголовок
                         dialog.setContentView(R.layout.select_gender);//путь к макету диалогового окна
                         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));//прозрачный фон
@@ -644,7 +653,7 @@ public class SelectionOfParameters extends AppCompatActivity {
                     case R.id.Sbutton6:
                         //кнопка  сезон
                     {
-                        dialog = new Dialog(SelectionOfParameters.this);
+                        dialog = new Dialog(ParamsFragment.this.getActivity());
                         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);//скрыть заголовок
                         dialog.setContentView(R.layout.select_season);//путь к макету диалогового окна
                         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));//прозрачный фон
@@ -693,7 +702,7 @@ public class SelectionOfParameters extends AppCompatActivity {
                     break;
                     case R.id.Sbutton7:
                         //кнопка цена
-                        dialog = new Dialog(SelectionOfParameters.this);
+                        dialog = new Dialog(ParamsFragment.this.getActivity());
                         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);//скрыть заголовок
                         dialog.setContentView(R.layout.select_price);//путь к макету диалогового окна
                         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));//прозрачный фон
@@ -711,12 +720,12 @@ public class SelectionOfParameters extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 if (TextUtils.isEmpty(priceOT.getText().toString())) {
-                                    Toast toast = Toast.makeText(SelectionOfParameters.this, "Поле 'стоимость от' не заполнено", Toast.LENGTH_SHORT);
+                                    Toast toast = Toast.makeText(ParamsFragment.this.getActivity(), "Поле 'стоимость от' не заполнено", Toast.LENGTH_SHORT);
                                     toast.show();
                                     return;
                                 }
                                 if (TextUtils.isEmpty(priceDO.getText().toString())) {
-                                    Toast toast = Toast.makeText(SelectionOfParameters.this, "Поле 'стоимость до' не заполнено", Toast.LENGTH_SHORT);
+                                    Toast toast = Toast.makeText(ParamsFragment.this.getActivity(), "Поле 'стоимость до' не заполнено", Toast.LENGTH_SHORT);
                                     toast.show();
                                     return;
                                 }
@@ -732,14 +741,14 @@ public class SelectionOfParameters extends AppCompatActivity {
                                     check = false;
                                 }
                                 if (check == false) {
-                                    Toast toast = Toast.makeText(SelectionOfParameters.this, "неверный формат цены", Toast.LENGTH_SHORT);
+                                    Toast toast = Toast.makeText(ParamsFragment.this.getActivity(), "неверный формат цены", Toast.LENGTH_SHORT);
                                     toast.show();
                                     return;
                                 }
                                 IntOt= Integer.parseInt (Ot);
                                 IntDo= Integer.parseInt (Ot);
                                 if (IntOt > IntDo) {
-                                    Toast toast = Toast.makeText(SelectionOfParameters.this, "неверный формат цены первое число не может быть больше второго", Toast.LENGTH_SHORT);
+                                    Toast toast = Toast.makeText(ParamsFragment.this.getActivity(), "неверный формат цены первое число не может быть больше второго", Toast.LENGTH_SHORT);
                                     toast.show();
                                     return;
                                 }
@@ -753,7 +762,7 @@ public class SelectionOfParameters extends AppCompatActivity {
                         break;
                     case R.id.Sbutton8: {
                         //кнопка прочее
-                        dialog = new Dialog(SelectionOfParameters.this);
+                        dialog = new Dialog(ParamsFragment.this.getActivity());
                         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);//скрыть заголовок
                         dialog.setContentView(R.layout.select_other);//путь к макету диалогового окна
                         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));//прозрачный фон
@@ -802,7 +811,7 @@ public class SelectionOfParameters extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 if (TextUtils.isEmpty(ageenter.getText().toString())) {
-                                    Toast toast = Toast.makeText(SelectionOfParameters.this, "Поле 'возраст' не заполнено", Toast.LENGTH_SHORT);
+                                    Toast toast = Toast.makeText(ParamsFragment.this.getActivity(), "Поле 'возраст' не заполнено", Toast.LENGTH_SHORT);
                                     toast.show();
                                     return;
                                 }
@@ -814,7 +823,7 @@ public class SelectionOfParameters extends AppCompatActivity {
                                     check = false;
                                 }
                                 if (check == false) {
-                                    Toast toast = Toast.makeText(SelectionOfParameters.this, "неверный формат возраста", Toast.LENGTH_SHORT);
+                                    Toast toast = Toast.makeText(ParamsFragment.this.getActivity(), "неверный формат возраста", Toast.LENGTH_SHORT);
                                     toast.show();
                                     return;
                                 }
@@ -823,7 +832,7 @@ public class SelectionOfParameters extends AppCompatActivity {
                                 }
                                 if((Intage <0||Intage>150))
                                 {
-                                    Toast toast = Toast.makeText(SelectionOfParameters.this, "неверный формат возраста", Toast.LENGTH_SHORT);
+                                    Toast toast = Toast.makeText(ParamsFragment.this.getActivity(), "неверный формат возраста", Toast.LENGTH_SHORT);
                                     toast.show();
                                     return;
                                 }
@@ -899,35 +908,35 @@ public class SelectionOfParameters extends AppCompatActivity {
                     case R.id.collect_the_onion:
                         //кнопка собрать лук
                         if (color.length() < 1) {
-                            Toast toast = Toast.makeText(SelectionOfParameters.this, "Параметр цвет не заполнено", Toast.LENGTH_SHORT);
+                            Toast toast = Toast.makeText(ParamsFragment.this.getActivity(), "Параметр цвет не заполнено", Toast.LENGTH_SHORT);
                             toast.show();
                             return;
                         } else if (style.length() < 1) {
-                            Toast toast = Toast.makeText(SelectionOfParameters.this, "Параметр стиль не заполнено", Toast.LENGTH_SHORT);
+                            Toast toast = Toast.makeText(ParamsFragment.this.getActivity(), "Параметр стиль не заполнено", Toast.LENGTH_SHORT);
                             toast.show();
                             return;
                         } else if (brand.length() < 1) {
-                            Toast toast = Toast.makeText(SelectionOfParameters.this, "Параметр бренд не заполнено", Toast.LENGTH_SHORT);
+                            Toast toast = Toast.makeText(ParamsFragment.this.getActivity(), "Параметр бренд не заполнено", Toast.LENGTH_SHORT);
                             toast.show();
                             return;
                         }
                         if (size.length() < 1) {
-                            Toast toast = Toast.makeText(SelectionOfParameters.this, "Параметр размер не заполнено", Toast.LENGTH_SHORT);
+                            Toast toast = Toast.makeText(ParamsFragment.this.getActivity(), "Параметр размер не заполнено", Toast.LENGTH_SHORT);
                             toast.show();
                             return;
                         }
                         if (gender.length() < 1) {
-                            Toast toast = Toast.makeText(SelectionOfParameters.this, "Параметр пол не заполнено", Toast.LENGTH_SHORT);
+                            Toast toast = Toast.makeText(ParamsFragment.this.getActivity(), "Параметр пол не заполнено", Toast.LENGTH_SHORT);
                             toast.show();
                             return;
                         }
                         if (season.length() < 1) {
-                            Toast toast = Toast.makeText(SelectionOfParameters.this, "Параметр сезон не заполнено", Toast.LENGTH_SHORT);
+                            Toast toast = Toast.makeText(ParamsFragment.this.getActivity(), "Параметр сезон не заполнено", Toast.LENGTH_SHORT);
                             toast.show();
                             return;
                         }
                         if (price.length() < 1) {
-                            Toast toast = Toast.makeText(SelectionOfParameters.this, "Параметр цена не заполнено", Toast.LENGTH_SHORT);
+                            Toast toast = Toast.makeText(ParamsFragment.this.getActivity(), "Параметр цена не заполнено", Toast.LENGTH_SHORT);
                             toast.show();
                             return;
                         }
@@ -969,5 +978,12 @@ public class SelectionOfParameters extends AppCompatActivity {
         BtnPrice.setOnClickListener(onClickListener);
         BtnPrint.setOnClickListener(onClickListener);
         collect_the_onion.setOnClickListener(onClickListener);
+        return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }

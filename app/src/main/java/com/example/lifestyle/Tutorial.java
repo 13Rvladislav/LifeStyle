@@ -28,7 +28,7 @@ public class Tutorial extends AppCompatActivity {
                 switch (view.getId()) {
                     case R.id.startScreenButton:
                     default:
-                        Intent intent = new Intent(Tutorial.this, SelectionOfParameters.class);
+                        Intent intent = new Intent(Tutorial.this, Navig.class);
                         startActivity(intent);
                         break;
                 }
