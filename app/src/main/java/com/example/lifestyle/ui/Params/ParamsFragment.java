@@ -1,8 +1,10 @@
 package com.example.lifestyle.ui.Params;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -19,6 +21,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.lifestyle.ActivityAutorization;
+import com.example.lifestyle.LoadingActivity;
 import com.example.lifestyle.R;
 
 import com.example.lifestyle.databinding.FragmentParamsBinding;
@@ -30,8 +34,28 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class ParamsFragment extends Fragment {
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.Map;
 
+public class ParamsFragment extends Fragment {
+    /*
+class  APiTask extends  AsyncTask<URL,Void,String>
+{
+    @Override
+    protected String doInBackground(URL... urls) {
+        return null;
+    }
+}
+     */
     //основные параметры
     String color = "";
     String style = "";
@@ -441,8 +465,9 @@ public class ParamsFragment extends Fragment {
                                     if (!brand.equals(" Неважно ")) {
                                         brand = brand.substring(1);
                                         brand = brand.substring(1);
+                                        brand = brand.substring(1);
                                     }
-                                    brand = brand.substring(1);
+
 
                                 }
                                 dialog.dismiss();//скрыть окно
@@ -745,14 +770,13 @@ public class ParamsFragment extends Fragment {
                                     toast.show();
                                     return;
                                 }
-                                IntOt= Integer.parseInt (Ot);
-                                IntDo= Integer.parseInt (Ot);
+                                IntOt = Integer.parseInt(Ot);
+                                IntDo = Integer.parseInt(Ot);
                                 if (IntOt > IntDo) {
                                     Toast toast = Toast.makeText(ParamsFragment.this.getActivity(), "неверный формат цены первое число не может быть больше второго", Toast.LENGTH_SHORT);
                                     toast.show();
                                     return;
-                                }
-                                else {
+                                } else {
                                     price += Ot + "-";
                                     price += Do;
                                     dialog.dismiss();//скрыть окно
@@ -816,7 +840,7 @@ public class ParamsFragment extends Fragment {
                                     return;
                                 }
                                 promezh = ageenter.getText().toString();
-                                IntOt= Integer.parseInt (Ot);
+                                IntOt = Integer.parseInt(Ot);
                                 String regex = "\\d+";
                                 boolean check = true;
                                 if (!promezh.matches(regex)) {
@@ -827,16 +851,14 @@ public class ParamsFragment extends Fragment {
                                     toast.show();
                                     return;
                                 }
-                                if(check) {
+                                if (check) {
                                     Intage = Integer.parseInt(promezh);
                                 }
-                                if((Intage <0||Intage>150))
-                                {
+                                if ((Intage < 0 || Intage > 150)) {
                                     Toast toast = Toast.makeText(ParamsFragment.this.getActivity(), "неверный формат возраста", Toast.LENGTH_SHORT);
                                     toast.show();
                                     return;
-                                }
-                                else {
+                                } else {
                                     age += promezh;
                                 }
 
@@ -905,7 +927,7 @@ public class ParamsFragment extends Fragment {
                         });
                     }
                     break;
-                    case R.id.collect_the_onion:
+                    case R.id.collect_the_onion: {
                         //кнопка собрать лук
                         if (color.length() < 1) {
                             Toast toast = Toast.makeText(ParamsFragment.this.getActivity(), "Параметр цвет не заполнено", Toast.LENGTH_SHORT);
@@ -959,13 +981,35 @@ public class ParamsFragment extends Fragment {
                                 users.child(UID).child("climate").setValue(climate);
                                 users.child(UID).child("patterns").setValue(patterns);
                                 users.child(UID).child("prints").setValue(prints);
+
                             }
 
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
                             }
+
+
+
                         });
+                        Intent intent = new Intent(getActivity(), LoadingActivity.class);
+                        intent.putExtra("color",color);
+                        intent.putExtra("style",style);
+                        intent.putExtra("brand",brand);
+                        intent.putExtra("size",size);
+                        intent.putExtra("gender",gender);
+                        intent.putExtra("season",season);
+                        intent.putExtra("price",price);
+
+                        intent.putExtra("age",age);
+                        intent.putExtra("monotone",monotone);
+                        intent.putExtra("region",region);
+                        intent.putExtra("climate",climate);
+                        intent.putExtra("patterns",patterns);
+                        intent.putExtra("prints",prints);
+
+                        startActivity(intent);
                         break;
+                    }
                 }
             }
         };

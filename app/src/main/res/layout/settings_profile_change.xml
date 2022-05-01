@@ -1,8 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="370dp"
     android:layout_height="500dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_gravity="center"
     android:layout_marginBottom="70dp"
     android:background="@drawable/background"
@@ -10,36 +12,39 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="163dp"
+        android:layout_height="190dp"
         android:layout_marginTop="20dp">
 
         <ImageView
             android:id="@+id/imageView13"
             android:layout_width="181dp"
             android:layout_height="131dp"
-            android:layout_marginTop="23dp"
+            android:layout_marginTop="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/changepass" />
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/namechange" />
 
         <ImageButton
             android:id="@+id/close"
-            android:layout_width="40dp"
-            android:layout_height="42dp"
+            android:layout_width="30dp"
+            android:layout_height="26dp"
             android:background="@android:color/transparent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.709"
+            app:layout_constraintHorizontal_bias="0.757"
             app:layout_constraintStart_toEndOf="@+id/imageView13"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.223"
-            app:srcCompat="@drawable/cansel1" />
+            app:layout_constraintVertical_bias="0.25"
+            app:srcCompat="@drawable/cansel1"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <EditText
-        android:id="@+id/oldpass"
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -48,43 +53,7 @@
         android:background="@drawable/custom_input"
         android:ems="10"
         android:gravity="center"
-        android:hint="Текущий пароль"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/btnmiss"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"></EditText>
-
-    <EditText
-        android:id="@+id/newpass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="28dp"
-        android:background="@drawable/custom_input"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Новый пароль"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/btnmiss"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"></EditText>
-
-    <EditText
-        android:id="@+id/newpassrepeat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="28dp"
-        android:background="@drawable/custom_input"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Повторите пароль"
+        android:hint="Новое имя профиля"
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:textColor="#FFFFFF"
@@ -94,14 +63,14 @@
         app:layout_constraintStart_toStartOf="parent"></EditText>
 
     <Button
-        android:id="@+id/updatePassProfile"
+        android:id="@+id/updateNameProfile"
         android:layout_width="265dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:background="@drawable/button"
         android:backgroundTint="#2C446C"
         android:fontFamily="@font/latobold700"
-        android:text="Сменить пароль"
+        android:text="Сменить имя"
         android:textColor="#FFFFFF"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"

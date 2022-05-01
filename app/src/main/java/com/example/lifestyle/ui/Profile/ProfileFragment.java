@@ -1,4 +1,4 @@
-package com.example.lifestyle.ui.Favorites;
+package com.example.lifestyle.ui.Profile;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,20 +9,19 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.lifestyle.databinding.FragmentFavoritesBinding;
+import com.example.lifestyle.databinding.FragmentProfileBinding;
 
 
-public class FavoritesFragment extends Fragment {
+public class ProfileFragment extends Fragment {
 
-    private com.example.lifestyle.ui.Favorites.FavoritesViewModel profileViewModel;
-    private FragmentFavoritesBinding binding;
+    private com.example.lifestyle.ui.Profile.ProfileViewModel profileViewModel;
+    private FragmentProfileBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        profileViewModel =
-                new ViewModelProvider(this).get(com.example.lifestyle.ui.Favorites.FavoritesViewModel.class);
+        profileViewModel = new ViewModelProvider(this).get(com.example.lifestyle.ui.Profile.ProfileViewModel.class);
 
-        binding = FragmentFavoritesBinding.inflate(inflater, container, false);
+        binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
 

@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".ui.Favorites.FavoritesFragment">
+    tools:context=".ui.Favorites.ProfileFragment">
 
     <Button
-        android:id="@+id/change"
+        android:id="@+id/updatePass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="356dp"
@@ -54,11 +54,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/change"
+        app:layout_constraintTop_toBottomOf="@+id/updatePass"
         app:layout_constraintVertical_bias="0.188" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/updateNameProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
@@ -70,7 +70,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/change"
+        app:layout_constraintTop_toBottomOf="@+id/updatePass"
         app:layout_constraintVertical_bias="0.022" />
 
     <ImageView

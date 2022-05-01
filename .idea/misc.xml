@@ -13,8 +13,11 @@
         <entry key="..\:/LifeStyle/app/src/main/res/drawable/ic_baseline_check_box_24.xml" value="0.37083333333333335" />
         <entry key="..\:/LifeStyle/app/src/main/res/drawable/ic_baseline_check_box_outline_blank_24.xml" value="0.37083333333333335" />
         <entry key="..\:/LifeStyle/app/src/main/res/drawable/ic_baseline_check_circle_outline_24.xml" value="0.37083333333333335" />
+        <entry key="..\:/LifeStyle/app/src/main/res/drawable/сancel.xml" value="0.37083333333333335" />
         <entry key="..\:/LifeStyle/app/src/main/res/layout-land/activity_miss_password.xml" value="0.3002645502645503" />
+        <entry key="..\:/LifeStyle/app/src/main/res/layout/a.xml" value="0.3546875" />
         <entry key="..\:/LifeStyle/app/src/main/res/layout/activity_autorization.xml" value="0.25" />
+        <entry key="..\:/LifeStyle/app/src/main/res/layout/activity_loading.xml" value="0.22" />
         <entry key="..\:/LifeStyle/app/src/main/res/layout/activity_miss_password.xml" value="0.25" />
         <entry key="..\:/LifeStyle/app/src/main/res/layout/activity_navig.xml" value="0.1953125" />
         <entry key="..\:/LifeStyle/app/src/main/res/layout/activity_profile.xml" value="0.3546875" />
@@ -32,12 +35,13 @@
         <entry key="..\:/LifeStyle/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/LifeStyle/app/src/main/res/layout/fragment_login.xml" value="0.19739583333333333" />
         <entry key="..\:/LifeStyle/app/src/main/res/layout/fragment_params.xml" value="0.19384057971014493" />
+        <entry key="..\:/LifeStyle/app/src/main/res/layout/fragment_profile.xml" value="0.3546875" />
         <entry key="..\:/LifeStyle/app/src/main/res/layout/fragment_reg.xml" value="0.19739583333333333" />
         <entry key="..\:/LifeStyle/app/src/main/res/layout/fragment_settings.xml" value="0.22" />
         <entry key="..\:/LifeStyle/app/src/main/res/layout/fragment_slideshow.xml" value="0.1953125" />
         <entry key="..\:/LifeStyle/app/src/main/res/layout/markbaddialogwindow.xml" value="0.33" />
         <entry key="..\:/LifeStyle/app/src/main/res/layout/nav_header_navig.xml" value="0.1953125" />
-        <entry key="..\:/LifeStyle/app/src/main/res/layout/select_brand.xml" value="0.6841155234657039" />
+        <entry key="..\:/LifeStyle/app/src/main/res/layout/select_brand.xml" value="0.33" />
         <entry key="..\:/LifeStyle/app/src/main/res/layout/select_colors.xml" value="0.5" />
         <entry key="..\:/LifeStyle/app/src/main/res/layout/select_gender.xml" value="0.3546875" />
         <entry key="..\:/LifeStyle/app/src/main/res/layout/select_other.xml" value="0.25905797101449274" />
@@ -46,7 +50,11 @@
         <entry key="..\:/LifeStyle/app/src/main/res/layout/select_season.xml" value="0.75" />
         <entry key="..\:/LifeStyle/app/src/main/res/layout/select_size.xml" value="0.3546875" />
         <entry key="..\:/LifeStyle/app/src/main/res/layout/select_style.xml" value="0.33" />
+        <entry key="..\:/LifeStyle/app/src/main/res/layout/settings_alert.xml" value="0.3546875" />
+        <entry key="..\:/LifeStyle/app/src/main/res/layout/settings_nameprofile_change.xml" value="0.3546875" />
+        <entry key="..\:/LifeStyle/app/src/main/res/layout/settings_pass_change.xml" value="0.3546875" />
         <entry key="..\:/LifeStyle/app/src/main/res/layout/settings_password_change.xml" value="0.22" />
+        <entry key="..\:/LifeStyle/app/src/main/res/layout/settings_profile_change.xml" value="0.3546875" />
         <entry key="..\:/LifeStyle/app/src/main/res/layout/srartscreen.xml" value="0.33" />
         <entry key="..\:/LifeStyle/app/src/main/res/menu/activity_main_drawer.xml" value="0.1953125" />
         <entry key="..\:/LifeStyle/app/src/main/res/menu/navig.xml" value="0.1" />

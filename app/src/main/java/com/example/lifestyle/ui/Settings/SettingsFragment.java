@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,40 +26,61 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class SettingsFragment extends Fragment {
 
     private SettingsViewModel settingsViewModel;
     private FragmentSettingsBinding binding;
-    Dialog dialog;//диалоговое окно
-    Button change;
-
+    Dialog dialog;
+    Button changePass;
+    Button changename;
+    ImageButton cansel;
     private FirebaseAuth firebaseAuth;
 
     private ProgressDialog pd;
 
     //UI widgets
-    private EditText oldPass, newPass, newPassRepeat;
+    private EditText oldPass, newPass, newPassRepeat, name;
     private Button updatePasswordBtn;
+    private Button updateNameProfile;
+
+    FirebaseAuth auth;
+    FirebaseDatabase DB;
+    DatabaseReference users;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
         binding = FragmentSettingsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        change = (Button) view.findViewById(R.id.change);
 
+
+        changePass = (Button) view.findViewById(R.id.updatePass);
+        changename = (Button) view.findViewById(R.id.updateNameProfile);
 
         pd = new ProgressDialog(this.getActivity());
         pd.setMessage("Please Wait...");
 
         View.OnClickListener onClickListener = new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
                 switch (view.getId()) {
-                    case R.id.change:
-                        //кнопка  цвет
+                    case R.id.updatePass:
+                        //кнопка смена пароля
                     {
                         dialog = new Dialog(SettingsFragment.this.getActivity());
                         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);//скрыть заголовок
@@ -67,11 +89,19 @@ public class SettingsFragment extends Fragment {
                         dialog.setCancelable(false);//не закрывается кнопкой назад
                         dialog.show();//показ окна
 
+                        cansel = dialog.findViewById(R.id.close);
+
                         oldPass = (EditText) dialog.findViewById(R.id.oldpass);
                         newPass = dialog.findViewById(R.id.newpass);
                         newPassRepeat = dialog.findViewById(R.id.newpassrepeat);
-                        updatePasswordBtn = dialog.findViewById(R.id.updatePasswordBtn);
-//input data
+                        updatePasswordBtn = dialog.findViewById(R.id.updatePassProfile);
+//смена пароля
+                        cansel.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.cancel();
+                            }
+                        });
                         updatePasswordBtn.setOnClickListener(new View.OnClickListener() {
                                                                  @Override
                                                                  public void onClick(View v) {
@@ -80,7 +110,7 @@ public class SettingsFragment extends Fragment {
                                                                      String newPassword = newPass.getText().toString().trim();
                                                                      //validate data
                                                                      if (TextUtils.isEmpty(oldPassword)) {
-                                                                         Toast.makeText(SettingsFragment.this.getActivity(), "Enter your current password...", Toast.LENGTH_SHORT).show();
+                                                                         Toast.makeText(SettingsFragment.this.getActivity(), "Введите ваш текущий пароль...", Toast.LENGTH_SHORT).show();
                                                                          return; //don't proceed further
                                                                      }
                                                                      String pass1 = newPass.getText().toString();
@@ -92,23 +122,71 @@ public class SettingsFragment extends Fragment {
                                                                          return;
                                                                      }
                                                                      if (newPassword.length() < 5) {
-                                                                         Toast.makeText(SettingsFragment.this.getActivity(), "Password length must atleast 6 characters...", Toast.LENGTH_SHORT).show();
+                                                                         Toast.makeText(SettingsFragment.this.getActivity(), "Длина пароля должна быть не менее 6 символов...", Toast.LENGTH_SHORT).show();
                                                                          return;  //don't proceed further
                                                                      }
                                                                      updatePassword(oldPassword, newPassword);
+                                                                 }
+                                                             }
+                        );
+
+                        break;
+                    }
+                    case R.id.updateNameProfile:
+                        //смена имени профиля
+                    {
+
+                        dialog = new Dialog(SettingsFragment.this.getActivity());
+                        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);//скрыть заголовок
+                        dialog.setContentView(R.layout.settings_profile_change);//путь к макету диалогового окна
+                        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));//прозрачный фон
+                        dialog.setCancelable(false);//не закрывается кнопкой назад
+                        dialog.show();//показ окна
+                        cansel = dialog.findViewById(R.id.close);
+                        name = (EditText) dialog.findViewById(R.id.name);
+                        updateNameProfile = dialog.findViewById(R.id.updateNameProfile);
+                        cansel.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.cancel();
+                            }
+                        });
+                        updateNameProfile.setOnClickListener(new View.OnClickListener() {
+                                                                 @Override
+                                                                 public void onClick(View v) {
+
+                                                                     String newName = name.getText().toString();
+                                                                     //validate data
+                                                                     updateName(newName);
 
                                                                  }
                                                              }
                         );
+                        break;
                     }
+
 
                 }
             }
+
+
         };
-        change.setOnClickListener(onClickListener);
+        changePass.setOnClickListener(onClickListener);
+        changename.setOnClickListener(onClickListener);
+
         return view;
     }
 
+    private void updateName(String name) {
+        auth = FirebaseAuth.getInstance();
+        FirebaseUser user1 = auth.getCurrentUser();
+        DB = FirebaseDatabase.getInstance();
+        users = DB.getReference("Users");
+        String UID = user1.getUid();
+        users.child(UID).child("name").setValue(name);
+        Toast.makeText(SettingsFragment.this.getActivity(), "имя успешно обновлено...", Toast.LENGTH_SHORT).show();
+        dialog.cancel();
+    }
 
     private void updatePassword(String oldPassword, final String newPassword) {
         //show dialog
@@ -131,7 +209,8 @@ public class SettingsFragment extends Fragment {
                                     public void onSuccess(Void aVoid) {
                                         //password updated
                                         pd.dismiss();
-                                        Toast.makeText(SettingsFragment.this.getActivity(), "Password Updated...", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(SettingsFragment.this.getActivity(), "пароль успешно обновлен...", Toast.LENGTH_SHORT).show();
+                                        dialog.cancel();
                                     }
                                 })
                                 .addOnFailureListener(new OnFailureListener() {
@@ -150,9 +229,13 @@ public class SettingsFragment extends Fragment {
                         //authentication failed, show reason
                         pd.dismiss();
                         Toast.makeText(SettingsFragment.this.getActivity(), "" + e.getMessage(), Toast.LENGTH_SHORT).show();
+
                     }
                 });
     }
+
+
+
 
     @Override
     public void onDestroyView() {

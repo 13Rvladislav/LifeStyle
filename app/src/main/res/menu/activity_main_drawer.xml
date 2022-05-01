@@ -10,6 +10,10 @@
             android:icon="@drawable/ic_baseline_article_24"
             android:title="@string/menu_params" />
         <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/icon_user"
+            android:title="@string/menu_profile" />
+        <item
             android:id="@+id/nav_favorites"
             android:icon="@drawable/ic_baseline_favorite_24"
             android:title="@string/menu_favorites" />
@@ -22,4 +26,8 @@
             android:icon="@drawable/ic_baseline_send_24"
             android:title="@string/menu_connection" />
     </group>
+    <item
+    android:id="@+id/nav_exit"
+    android:icon="@drawable/icon_exit"
+    android:title="@string/menu_exit" />
 </menu>

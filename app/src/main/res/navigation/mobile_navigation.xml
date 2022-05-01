@@ -24,7 +24,12 @@
         tools:layout="@layout/fragment_favorites" />
     <fragment
         android:id="@+id/nav_connection"
-        android:name="com.example.lifestyle.ui.Settings.SettingsFragment"
+        android:name="com.example.lifestyle.ui.Connection.ConnectionFragment"
         android:label="@string/menu_connection"
         tools:layout="@layout/fragment_connection" />
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.lifestyle.ui.Profile.ProfileFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>
