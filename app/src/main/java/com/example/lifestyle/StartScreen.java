@@ -1,24 +1,43 @@
 package com.example.lifestyle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.Button;
 
-import java.util.ArrayList;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class StartScreen extends AppCompatActivity {
 Button mainButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+        /// Test API
+
+        ApiInterface apiInterface = RetrofitClient.getRetrofitInstance().create(ApiInterface.class);
+        Call<Weather> call = apiInterface.getWeatherInformation("35", "139", "c00d724545894ac3d6c9508c9e52825f");
+
+        System.out.println("asdasdasd");
+
+        call.enqueue(new Callback<Weather>() {
+            @Override
+            public void onResponse(Call<Weather> call, Response<Weather> response) {
+                System.out.println(response.body().getCoord());
+            }
+
+            @Override
+            public void onFailure(Call<Weather> call, Throwable t) {
+                System.out.println(t);
+            }
+        });
+
+        ////
         super.onCreate(savedInstanceState);
         setContentView(R.layout.srartscreen);
         getSupportActionBar().hide();
