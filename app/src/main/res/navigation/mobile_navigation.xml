@@ -32,4 +32,9 @@
         android:name="com.example.lifestyle.ui.Profile.ProfileFragment"
         android:label="@string/menu_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/nav_exit"
+        android:name="com.example.lifestyle.ui.Exit.ExitFragment"
+        android:label="@string/menu_exit"
+        tools:layout="@layout/fragment_exit" />
 </navigation>

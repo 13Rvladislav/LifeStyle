@@ -2,6 +2,7 @@ package com.example.lifestyle.ui.Settings;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.lifestyle.R;
+import com.example.lifestyle.StartScreen;
 import com.example.lifestyle.databinding.FragmentSettingsBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -29,36 +31,26 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.Map;
-
 
 public class SettingsFragment extends Fragment {
 
-    private SettingsViewModel settingsViewModel;
+    private com.example.lifestyle.ui.Settings.ExitViewModel exitViewModel;
     private FragmentSettingsBinding binding;
     Dialog dialog;
     Button changePass;
     Button changename;
     ImageButton cansel;
+    int chet = 0;
     private FirebaseAuth firebaseAuth;
-
+    protected FirebaseAuth mAuth;
     private ProgressDialog pd;
 
     //UI widgets
     private EditText oldPass, newPass, newPassRepeat, name;
     private Button updatePasswordBtn;
     private Button updateNameProfile;
-
+    private Button Exit;
+    private Button out;
     FirebaseAuth auth;
     FirebaseDatabase DB;
     DatabaseReference users;
@@ -68,7 +60,7 @@ public class SettingsFragment extends Fragment {
         binding = FragmentSettingsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-
+        Exit= (Button) view.findViewById(R.id.Exit);
         changePass = (Button) view.findViewById(R.id.updatePass);
         changename = (Button) view.findViewById(R.id.updateNameProfile);
 
@@ -132,10 +124,40 @@ public class SettingsFragment extends Fragment {
 
                         break;
                     }
+                    case R.id.Exit:
+                    {
+                        dialog = new Dialog(SettingsFragment.this.getActivity());
+                        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);//скрыть заголовок
+                        dialog.setContentView(R.layout.settings_exit);//путь к макету диалогового окна
+                        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));//прозрачный фон
+                        dialog.setCancelable(false);//не закрывается кнопкой назад
+                        dialog.show();//показ окна
+
+                        mAuth = FirebaseAuth.getInstance();
+                        out = dialog.findViewById(R.id.exit);
+                        cansel = dialog.findViewById(R.id.close);
+                        cansel.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.cancel();
+                            }
+                        });
+                        out.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                {
+                                    Intent intent = new Intent(getActivity(), StartScreen.class);
+                                    mAuth.getInstance().signOut();
+                                    startActivity(intent);
+                                }
+                            }
+
+                        });
+                        break;
+                    }
                     case R.id.updateNameProfile:
                         //смена имени профиля
                     {
-
                         dialog = new Dialog(SettingsFragment.this.getActivity());
                         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);//скрыть заголовок
                         dialog.setContentView(R.layout.settings_profile_change);//путь к макету диалогового окна
@@ -154,8 +176,21 @@ public class SettingsFragment extends Fragment {
                         updateNameProfile.setOnClickListener(new View.OnClickListener() {
                                                                  @Override
                                                                  public void onClick(View v) {
+                                                                     if (TextUtils.isEmpty(name.getText().toString())) {
+                                                                         Toast toast = Toast.makeText(SettingsFragment.this.getActivity(), "Поле 'имя' не заполнено", Toast.LENGTH_SHORT);
+                                                                         toast.show();
+                                                                         return;
+                                                                     }
 
                                                                      String newName = name.getText().toString();
+                                                                     for (int i = 0; i < newName.length(); i++)
+                                                                         if (newName.charAt(i) == ' ')
+                                                                             chet++;
+                                                                     if (chet != 0) {
+                                                                         Toast toast = Toast.makeText(SettingsFragment.this.getActivity(), "имя не может содержать пробелы", Toast.LENGTH_SHORT);
+                                                                         toast.show();
+                                                                         return;
+                                                                     }
                                                                      //validate data
                                                                      updateName(newName);
 
@@ -173,6 +208,7 @@ public class SettingsFragment extends Fragment {
         };
         changePass.setOnClickListener(onClickListener);
         changename.setOnClickListener(onClickListener);
+        Exit.setOnClickListener(onClickListener);
 
         return view;
     }
@@ -233,8 +269,6 @@ public class SettingsFragment extends Fragment {
                     }
                 });
     }
-
-
 
 
     @Override
