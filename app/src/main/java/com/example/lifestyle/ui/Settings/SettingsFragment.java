@@ -49,6 +49,7 @@ public class SettingsFragment extends Fragment {
     private EditText oldPass, newPass, newPassRepeat, name;
     private Button updatePasswordBtn;
     private Button updateNameProfile;
+    private Button Alert;
     private Button Exit;
     private Button out;
     FirebaseAuth auth;
@@ -60,10 +61,10 @@ public class SettingsFragment extends Fragment {
         binding = FragmentSettingsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        Exit= (Button) view.findViewById(R.id.Exit);
+        Exit = (Button) view.findViewById(R.id.Exit);
         changePass = (Button) view.findViewById(R.id.updatePass);
         changename = (Button) view.findViewById(R.id.updateNameProfile);
-
+        Alert = (Button) view.findViewById(R.id.Alerts);
         pd = new ProgressDialog(this.getActivity());
         pd.setMessage("Please Wait...");
 
@@ -71,6 +72,23 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 switch (view.getId()) {
+                    case R.id.Alerts: {
+                        dialog = new Dialog(SettingsFragment.this.getActivity());
+                        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);//скрыть заголовок
+                        dialog.setContentView(R.layout.settings_alert);//путь к макету диалогового окна
+                        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));//прозрачный фон
+                        dialog.setCancelable(false);//не закрывается кнопкой назад
+                        dialog.show();//показ окна
+
+                        cansel = dialog.findViewById(R.id.close);
+                        cansel.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.cancel();
+                            }
+                        });
+                        break;
+                    }
                     case R.id.updatePass:
                         //кнопка смена пароля
                     {
@@ -124,8 +142,7 @@ public class SettingsFragment extends Fragment {
 
                         break;
                     }
-                    case R.id.Exit:
-                    {
+                    case R.id.Exit: {
                         dialog = new Dialog(SettingsFragment.this.getActivity());
                         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);//скрыть заголовок
                         dialog.setContentView(R.layout.settings_exit);//путь к макету диалогового окна
@@ -209,7 +226,7 @@ public class SettingsFragment extends Fragment {
         changePass.setOnClickListener(onClickListener);
         changename.setOnClickListener(onClickListener);
         Exit.setOnClickListener(onClickListener);
-
+        Alert.setOnClickListener(onClickListener);
         return view;
     }
 
