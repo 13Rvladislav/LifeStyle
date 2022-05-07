@@ -14,6 +14,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -43,7 +44,7 @@ public class LoadingActivity extends AppCompatActivity {
         String prints= intent.getStringExtra("prints");
         result_info = findViewById(R.id.Loader);
         String key = "";
-        String url = "https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=c00d724545894ac3d6c9508c9e52825f";
+        String url = "http://18.132.46.198:5000";
         new GetUrl().execute(url);
     }
 
@@ -56,11 +57,11 @@ public class LoadingActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... strings) {
-            HttpsURLConnection connection = null;
+            HttpURLConnection connection = null;
             BufferedReader reader = null;
             try {
                 URL url = new URL(strings[0]);
-                connection = (HttpsURLConnection) url.openConnection();
+                connection = (HttpURLConnection) url.openConnection();
                 connection.connect();
 
                 InputStream stream = connection.getInputStream();
@@ -98,7 +99,6 @@ public class LoadingActivity extends AppCompatActivity {
             try {
                 JSONObject jsonobj = new JSONObject(result);
                // for (int i = 0; i < jsonobj.Length; i++)
-                    result_info.setText("Температура" + jsonobj.getJSONObject("main").getDouble("temp"));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
