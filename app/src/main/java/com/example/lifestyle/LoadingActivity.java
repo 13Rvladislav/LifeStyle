@@ -1,5 +1,6 @@
 package com.example.lifestyle;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -18,37 +19,51 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import javax.net.ssl.HttpsURLConnection;
-
 public class LoadingActivity extends AppCompatActivity {
     TextView result_info;
+    JSONObject Json;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
         Intent intent = getIntent();
-        String color= intent.getStringExtra("color");
-        String style= intent.getStringExtra("style");
-        String brand= intent.getStringExtra("brand");
-        String size= intent.getStringExtra("size");
-        String gender= intent.getStringExtra("gender");
-        String season= intent.getStringExtra("season");
-        String price= intent.getStringExtra("price");
 
-        String age= intent.getStringExtra("age");
-        String monotone= intent.getStringExtra("monotone");
-        String region= intent.getStringExtra("region");
-        String climate= intent.getStringExtra("climate");
-        String patterns= intent.getStringExtra("patterns");
-        String prints= intent.getStringExtra("prints");
+        String color = intent.getStringExtra("color");
+        String style = intent.getStringExtra("style");
+        String brand = intent.getStringExtra("brand");
+        String size = intent.getStringExtra("size");
+        String gender = intent.getStringExtra("gender");
+        String season = intent.getStringExtra("season");
+        String price = intent.getStringExtra("price");
+
+        String age = intent.getStringExtra("age");
+        String monotone = intent.getStringExtra("monotone");
+        String region = intent.getStringExtra("region");
+        String climate = intent.getStringExtra("climate");
+        String patterns = intent.getStringExtra("patterns");
+        String prints = intent.getStringExtra("prints");
         result_info = findViewById(R.id.Loader);
         String key = "";
-        String url = "http://18.132.46.198:5000";
+        String url = "http://18.132.46.198:5000/clothes";
         new GetUrl().execute(url);
+
+/*
+        Intent intent1 = new Intent(LoadingActivity.this, RenderedItems.class);
+        intent.putExtra("jsonItems", (Parcelable) Json);
+        startActivity(intent1);
+        System.out.println(str);
+
+ */
     }
 
     private class GetUrl extends AsyncTask<String, String, String> {
+        Context context;
+
+        private void MyAsyncTask(Context context) {
+            this.context = context.getApplicationContext();
+        }
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -98,11 +113,19 @@ public class LoadingActivity extends AppCompatActivity {
             super.onPostExecute(result);
             try {
                 JSONObject jsonobj = new JSONObject(result);
-               // for (int i = 0; i < jsonobj.Length; i++)
+                NewAct(jsonobj);
+                // for (int i = 0; i < jsonobj.Length; i++)
             } catch (JSONException e) {
                 e.printStackTrace();
             }
 
         }
+    }
+
+    protected void NewAct(JSONObject jsonobj) {
+        //S
+        // Intent intent = new Intent(LoadingActivity.this, RenderedItems.class);
+        //intent.putExtra("Json", (Parcelable) jsonobj);// тут наебка (оно падает)
+        //startActivity(intent);
     }
 }
