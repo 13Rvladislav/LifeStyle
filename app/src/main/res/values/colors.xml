@@ -9,5 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="button">#2C446C</color>
     <color name="gray">#c0c0c0</color>
+    <color name="nv">#0000</color>
     <color name="newlayout">#2C446C</color>
 </resources>

@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.lifestyle.models.Clothes;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -122,10 +124,19 @@ public class LoadingActivity extends AppCompatActivity {
         }
     }
 
-    protected void NewAct(JSONObject jsonobj) {
-        //S
-        // Intent intent = new Intent(LoadingActivity.this, RenderedItems.class);
-        //intent.putExtra("Json", (Parcelable) jsonobj);// тут наебка (оно падает)
-        //startActivity(intent);
+        protected void NewAct(JSONObject jsonobj) {
+            Intent intent = new Intent(LoadingActivity.this, RenderedItems.class);
+
+            try {
+                Clothes[]clothesArray = new Clothes[3];
+                clothesArray[0] = new Clothes(jsonobj.getString("address"), jsonobj.getInt("cost"), jsonobj.getString("img_link"), jsonobj.getString("name"));
+                clothesArray[1] = new Clothes(jsonobj.getString("address"), jsonobj.getInt("cost"), jsonobj.getString("img_link"), jsonobj.getString("name"));
+                clothesArray[2] = new Clothes(jsonobj.getString("address"), jsonobj.getInt("cost"), jsonobj.getString("img_link"), jsonobj.getString("name"));
+
+                intent.putExtra("clothes", clothesArray);
+                startActivity(intent);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
     }
-}
